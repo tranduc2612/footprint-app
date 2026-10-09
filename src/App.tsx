@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Link, Route, Routes, useLocation } from 'react-router-dom'
 import './App.css'
 import HomePage from './pages/HomePage'
 import TripDetailPage from './pages/TripDetailPage'
@@ -33,7 +33,7 @@ function NotFoundPage() {
       <main className="trip-not-found">
         <p className="eyebrow">404 · KHÔNG TÌM THẤY TRANG</p>
         <h1>Trang này chưa có ở đây.</h1>
-        <a className="hero-link" href="/">Về trang chủ <span aria-hidden="true">←</span></a>
+        <Link className="hero-link" to="/">Về trang chủ <span aria-hidden="true">←</span></Link>
       </main>
     </div>
   )
