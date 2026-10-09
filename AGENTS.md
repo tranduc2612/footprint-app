@@ -1,29 +1,54 @@
-# Repository Guidelines
+# Project Context and Repository Guidelines
 
-## Project Structure
+## Product
 
-This repository is a React 19 and TypeScript single-page app built with Vite. Application code lives in `src/`: `App.tsx` configures routes, pages live in `src/pages/`, reusable UI lives in `src/components/`, and `src/content/archive.json` records trip and gallery metadata. Store album photos in `public/media/` and refer to them with root-relative URLs such as `/media/place/photo.jpg`; add new photos to the archive metadata when they should appear in the app. `main.tsx` mounts the app, and `App.css` / `index.css` hold component and global styles. Other imported source assets belong in `src/assets/`. There is no dedicated test directory yet.
+Dấu Chân is a responsive travel photo and video album for revisiting shared trips. The interface supports Vietnamese and English; Vietnamese is the default. The language preference is saved in browser local storage and persists across routes and reloads.
 
-## Build and Development Commands
+## Stack and Structure
 
-- `npm install` installs dependencies from `package-lock.json`.
-- `npm run dev` starts the Vite development server with hot reload.
-- `npm run build` runs TypeScript project checks and creates the production bundle in `dist/`.
-- `npm run preview` serves the built bundle locally; run `npm run build` first.
+This is a React 19 and TypeScript single-page application built with Vite and React Router.
+
+- `src/main.tsx` mounts `BrowserRouter`.
+- `src/App.tsx` defines `/`, `/trips/:tripId`, the not-found page, and the app-wide `LanguageProvider`.
+- `src/pages/HomePage.tsx` renders the hero, album, places map, and memorable-moments slider.
+- `src/pages/TripDetailPage.tsx` renders an individual trip and its photo gallery.
+- `src/components/` contains reusable album cards, the Leaflet map, footer, and photo lightbox.
+- `src/content/archive.json` is the source of trip, place, statistic, hero-image, and memorable-gallery metadata.
+- `src/content/archive.ts` resolves media paths with Vite's base path for local and GitHub Pages builds.
+- `src/content/language.tsx` contains the language context, UI translations, localized place names, and date formatters.
+- `src/App.css` and `src/index.css` contain component and global styles.
+- `public/media/` is the canonical location for web-ready album images.
+
+## Content and Media Rules
+
+- Keep album media in `public/media/`; reference it from `archive.json` with paths such as `/media/ninhbinh-2026/photo.jpg`.
+- Put home hero imagery in `public/media/home-pic/` and set `heroImage` in `archive.json`.
+- Put selected highlight imagery in `public/media/memorable/` and list it in `gallery`. The `gallery` list drives the memorable slider; it is intentionally curated rather than auto-populated from trip photos.
+- Put trip photos in the matching trip folder. Update that visit's `cover` and `images` fields in `archive.json` when the displayed set changes.
+- Update `places`, trip metadata, and aggregate `stats` in `archive.json` when adding trips or locations.
+- Prefer JPEG, PNG, or WebP for browser compatibility. Do not leave redundant originals when the archive no longer references them and the user has requested cleanup.
+- Trip IDs should end in an ISO date (`...-YYYY-MM-DD`); date helpers use this suffix for English formatting.
+- Keep source-language copy in `archive.json` in Vietnamese. Add translated UI strings, English place names, and localized image descriptions in `language.tsx`.
+- When adding user-visible text or accessible labels, provide both Vietnamese and English. Keep the brand name “Dấu Chân” unchanged.
+
+## Commands
+
+- `npm install` installs dependencies.
+- `npm run dev` starts the local Vite server.
 - `npm run lint` checks the project with ESLint.
+- `npm run build` runs TypeScript checks and builds into `dist/`.
+- `npm run preview` serves the built site locally.
 
-## Coding Style
+Run `npm run lint` and `npm run build` after code changes. No separate test framework is configured. For UI changes, inspect the affected page at desktop and mobile widths when practical.
 
-Use TypeScript and React function components; keep UI in `.tsx` files and styles in CSS files. Follow the existing two-space indentation and single-quoted TypeScript imports. Use PascalCase for component names and files (for example, `App.tsx`), camelCase for variables and functions, and descriptive lowercase names for CSS classes. Keep imports explicit and remove unused variables; TypeScript is configured to flag unused locals and parameters. Run `npm run lint` before submitting changes.
+## Style
 
-## Testing
+Use React function components and TypeScript. Keep UI in `.tsx` files and styles in CSS files. Follow two-space indentation, single-quoted TypeScript imports, PascalCase component names, camelCase variables, and descriptive lowercase CSS classes. Keep imports explicit and remove unused code.
 
-No test framework or `test` script is configured. For changes, run `npm run lint` and `npm run build`, then exercise the affected UI with `npm run dev` in a browser. If adding tests, introduce a framework and document its command and naming convention here.
+## GitHub Pages and Git Safety
 
-## Commits and Pull Requests
-
-Git metadata is not present in this checkout, so existing commit conventions cannot be verified. Write concise, imperative commit subjects that describe the change (for example, `Add responsive settings panel`). Pull requests should explain user-visible changes, include relevant screenshots for UI updates, and list the validation commands run. Link related issues when applicable.
-
-## Configuration
-
-Keep environment-specific values and secrets out of source control. Update `package-lock.json` together with `package.json` when dependencies change.
+- `.github/workflows/deploy.yml` deploys automatically after a push to `main` and can also be run manually.
+- `vite.config.ts` sets `/memorable-app/` as the production base path on GitHub Actions; preserve this for the current GitHub Pages project site.
+- The deploy workflow copies `dist/index.html` to `dist/404.html` so React Router deep links continue to work.
+- Do not commit, push, or deploy unless the user explicitly asks. A direct request to publish authorizes the corresponding commit and push for that request.
+- Keep secrets and environment-specific credentials out of the repository.
