@@ -22,6 +22,8 @@ export type Place = {
   name: string
   region: string
   visits: number
+  latitude: number
+  longitude: number
 }
 
 export type ArchiveData = {

@@ -9,17 +9,23 @@
     {
       "name": "Ninh Bình",
       "region": "Ninh Bình",
-      "visits": 2
+      "visits": 2,
+      "latitude": 20.258085,
+      "longitude": 105.979651
     },
     {
       "name": "Sa Pa",
       "region": "Lào Cai",
-      "visits": 1
+      "visits": 1,
+      "latitude": 22.335701,
+      "longitude": 103.841689
     },
     {
       "name": "Hạ Long",
       "region": "Quảng Ninh",
-      "visits": 1
+      "visits": 1,
+      "latitude": 20.95045,
+      "longitude": 107.07336
     }
   ],
   "visits": [

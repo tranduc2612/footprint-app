@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
 import AlbumCard from '../components/AlbumCard'
 import MomentLightbox from '../components/MomentLightbox'
+import PlacesMap from '../components/PlacesMap'
 import SiteFooter from '../components/SiteFooter'
 import { archive, moments, places, visits, years } from '../content/archive'
 
@@ -259,9 +260,14 @@ export default function HomePage() {
           <div className="places-heading" data-reveal="left">
             <h2 id="places-title">Bản đồ nhỏ<br />của <em>chúng mình.</em></h2>
           </div>
+          <PlacesMap
+            places={places}
+            selectedPlace={activePlace}
+            onSelectPlace={(place) => { setActivePlace(place); scrollTo('album') }}
+          />
           <div className="place-list">
             {places.map((place, index) => (
-              <button className="place-row" data-reveal key={place.name} type="button" onClick={() => { setActivePlace(place.name); scrollTo('album') }}>
+              <button className={`place-row ${activePlace === place.name ? 'is-selected' : ''}`} data-reveal key={place.name} type="button" onClick={() => { setActivePlace(place.name); scrollTo('album') }} aria-pressed={activePlace === place.name}>
                 <span className="place-index">0{index + 1}</span>
                 <span className="place-name">{place.name}</span>
                 <span className="place-region">{place.region}</span>
