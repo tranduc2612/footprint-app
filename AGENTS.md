@@ -48,7 +48,7 @@ Use React function components and TypeScript. Keep UI in `.tsx` files and styles
 ## GitHub Pages and Git Safety
 
 - `.github/workflows/deploy.yml` deploys automatically after a push to `main` and can also be run manually.
-- `vite.config.ts` sets `/memorable-app/` as the production base path on GitHub Actions; preserve this for the current GitHub Pages project site.
+- `vite.config.ts` sets `/footprint-app/` as the production base path on GitHub Actions; preserve this for the current GitHub Pages project site.
 - The deploy workflow copies `dist/index.html` to `dist/404.html` so React Router deep links continue to work.
 - Do not commit, push, or deploy unless the user explicitly asks. A direct request to publish authorizes the corresponding commit and push for that request.
 - Keep secrets and environment-specific credentials out of the repository.

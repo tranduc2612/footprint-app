@@ -3,6 +3,6 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS === 'true' ? '/memorable-app/' : '/',
+  base: process.env.GITHUB_ACTIONS === 'true' ? '/footprint-app/' : '/',
   plugins: [react()],
 })

@@ -64,6 +64,6 @@ public/media/              # Ảnh album, ảnh trang đầu và ảnh tiêu bi�
 
 GitHub Actions tự chạy workflow `Deploy to GitHub Pages` khi có commit mới trên nhánh `main`. Workflow cài dependencies bằng `npm ci`, chạy build, giữ hỗ trợ deep link của React Router qua `dist/404.html`, rồi deploy GitHub Pages.
 
-Ứng dụng được cấu hình base path `/memorable-app/` trên GitHub Pages. Không đổi cấu hình `base` trong `vite.config.ts` nếu chưa cập nhật nơi deploy.
+Ứng dụng được cấu hình base path `/footprint-app/` trên GitHub Pages. Không đổi cấu hình `base` trong `vite.config.ts` nếu chưa cập nhật nơi deploy.
 
-Trang đang deploy: [tranduc2612.github.io/memorable-app](https://tranduc2612.github.io/memorable-app/).
+Trang đang deploy: [tranduc2612.github.io/footprint-app](https://tranduc2612.github.io/footprint-app/).
