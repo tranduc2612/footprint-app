@@ -1,7 +1,8 @@
 import { useEffect, useMemo } from 'react'
 import L from 'leaflet'
-import { MapContainer, Marker, TileLayer, Tooltip, useMap } from 'react-leaflet'
+import { MapContainer, Marker, TileLayer, Tooltip, useMap, ZoomControl } from 'react-leaflet'
 import type { Place } from '../types/archive'
+import { localizedPlace, localizedRegion, useLanguage } from '../content/language'
 import 'leaflet/dist/leaflet.css'
 
 type PlacesMapProps = {
@@ -32,21 +33,35 @@ function FitPlacesBounds({ places }: { places: Place[] }) {
   const map = useMap()
 
   useEffect(() => {
-    if (!places.length) return
+    const container = map.getContainer()
+    const fitMap = () => {
+      map.invalidateSize({ animate: false, pan: false })
+      if (!places.length) return
 
-    if (places.length === 1) {
-      map.setView([places[0].latitude, places[0].longitude], 8, { animate: false })
-      return
+      if (places.length === 1) {
+        map.setView([places[0].latitude, places[0].longitude], 8, { animate: false })
+        return
+      }
+
+      const bounds = L.latLngBounds(places.map(({ latitude, longitude }) => [latitude, longitude]))
+      map.fitBounds(bounds, { padding: [64, 64], maxZoom: 8, animate: false })
     }
 
-    const bounds = L.latLngBounds(places.map(({ latitude, longitude }) => [latitude, longitude]))
-    map.fitBounds(bounds, { padding: [64, 64], maxZoom: 8, animate: false })
+    const frame = window.requestAnimationFrame(fitMap)
+    const observer = new ResizeObserver(() => map.invalidateSize({ animate: false, pan: false }))
+    observer.observe(container)
+
+    return () => {
+      window.cancelAnimationFrame(frame)
+      observer.disconnect()
+    }
   }, [map, places])
 
   return null
 }
 
 export default function PlacesMap({ places, selectedPlace, onSelectPlace }: PlacesMapProps) {
+  const { language, t } = useLanguage()
   const mappablePlaces = useMemo(() => places.filter(isValidCoordinate), [places])
   const firstPlace = mappablePlaces[0]
   const initialCenter: [number, number] = firstPlace
@@ -54,7 +69,11 @@ export default function PlacesMap({ places, selectedPlace, onSelectPlace }: Plac
     : [16, 108]
 
   return (
-    <figure className="places-map" data-reveal="right" aria-label="Bản đồ những nơi chúng mình đã ghé thăm">
+    <figure className="places-map" data-reveal="right" aria-label={t.mapAria}>
+      <div className="places-map-heading">
+        <span>{t.mapHeading}</span>
+        <strong>{t.mapPlacesCount(places.length)}</strong>
+      </div>
       <div className="places-map-canvas">
         <MapContainer
           className="places-leaflet-map"
@@ -63,13 +82,15 @@ export default function PlacesMap({ places, selectedPlace, onSelectPlace }: Plac
           minZoom={2}
           maxZoom={18}
           scrollWheelZoom={false}
-          aria-label="Bản đồ tương tác các địa điểm đã ghé thăm"
+          zoomControl={false}
+          aria-label={t.mapInteractive}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap contributors</a>'
             url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <FitPlacesBounds places={mappablePlaces} />
+          <ZoomControl position="topright" zoomInTitle={t.zoomIn} zoomOutTitle={t.zoomOut} />
           {mappablePlaces.map((place) => {
             const placeIndex = places.indexOf(place)
             const selected = selectedPlace === place.name
@@ -81,26 +102,21 @@ export default function PlacesMap({ places, selectedPlace, onSelectPlace }: Plac
                 icon={createPlaceIcon(placeIndex, selected)}
                 eventHandlers={{ click: () => onSelectPlace(place.name) }}
                 keyboard
-                title={`${place.name}, ${place.region}`}
-                alt={`${place.name}, ${place.visits} chuyến đi`}
+                title={`${localizedPlace(place.name, language)}, ${localizedRegion(place.region, language)}`}
+                alt={`${localizedPlace(place.name, language)}, ${t.mapTripCount(place.visits)}`}
               >
                 <Tooltip permanent direction="top" offset={[0, -14]} className="places-map-tooltip">
-                  <strong>{place.name}</strong>
-                  <span>{place.visits} {place.visits === 1 ? 'chuyến' : 'chuyến đi'}</span>
+                  <strong>{localizedPlace(place.name, language)}</strong>
+                  <span>{t.mapTripCount(place.visits)}</span>
                 </Tooltip>
               </Marker>
             )
           })}
         </MapContainer>
-
-        <div className="places-map-heading">
-          <span>NHỮNG NƠI ĐÃ ĐI QUA</span>
-          <strong>{places.length} địa điểm trên bản đồ</strong>
-        </div>
       </div>
       <figcaption className="places-map-caption">
-        <span><i aria-hidden="true" /> {places.length} địa điểm đã ghé thăm</span>
-        <span>Chạm vào điểm để xem album</span>
+        <span><i aria-hidden="true" /> {t.visitedPlacesCount(places.length)}</span>
+        <span>{t.mapHint}</span>
       </figcaption>
     </figure>
   )

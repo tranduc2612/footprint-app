@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useLanguage } from '../content/language'
 import type { Moment } from '../types/archive'
 
 type MomentLightboxProps = {
@@ -9,6 +10,7 @@ type MomentLightboxProps = {
 }
 
 export default function MomentLightbox({ moments, activeIndex, onChange, onClose }: MomentLightboxProps) {
+  const { t } = useLanguage()
   const moment = activeIndex === null ? null : moments[activeIndex]
 
   useEffect(() => {
@@ -40,13 +42,13 @@ export default function MomentLightbox({ moments, activeIndex, onChange, onClose
 
   return (
     <div className="photo-viewer" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose() }}>
-      <section className="photo-viewer-stage" role="dialog" aria-modal="true" aria-label="Xem ảnh toàn màn hình">
+      <section className="photo-viewer-stage" role="dialog" aria-modal="true" aria-label={t.lightbox}>
         <img className="photo-viewer-image" src={moment.src} alt={moment.alt} />
-        <button className="photo-viewer-close" onClick={onClose} type="button" aria-label="Đóng ảnh"><span className="photo-viewer-glyph" aria-hidden="true">×</span></button>
+        <button className="photo-viewer-close" onClick={onClose} type="button" aria-label={t.closePhoto}><span className="photo-viewer-glyph" aria-hidden="true">×</span></button>
         {showNavigation && (
           <>
-            <button className="photo-viewer-arrow photo-viewer-previous" onClick={() => changeImage(-1)} type="button" aria-label="Ảnh trước"><span className="photo-viewer-glyph" aria-hidden="true">←</span></button>
-            <button className="photo-viewer-arrow photo-viewer-next" onClick={() => changeImage(1)} type="button" aria-label="Ảnh tiếp theo"><span className="photo-viewer-glyph" aria-hidden="true">→</span></button>
+            <button className="photo-viewer-arrow photo-viewer-previous" onClick={() => changeImage(-1)} type="button" aria-label={t.previousPhoto}><span className="photo-viewer-glyph" aria-hidden="true">←</span></button>
+            <button className="photo-viewer-arrow photo-viewer-next" onClick={() => changeImage(1)} type="button" aria-label={t.nextPhoto}><span className="photo-viewer-glyph" aria-hidden="true">→</span></button>
           </>
         )}
       </section>

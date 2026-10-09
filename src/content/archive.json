@@ -2,9 +2,9 @@
   "stats": {
     "places": 3,
     "trips": 4,
-    "moments": 66
+    "moments": 68
   },
-  "heroImage": "/media/ninhbinh-2026/img-2621.jpg",
+  "heroImage": "/media/home-pic/01c80178-3f5e-4b63-b5c0-7f23e234fd7e-23327-00000cbdec776d41.jpg",
   "places": [
     {
       "name": "Ninh Bình",
@@ -133,39 +133,47 @@
       "date": "22 tháng 2, 2025",
       "year": 2025,
       "videos": 0,
-      "cover": "/media/ninhbinh-2025-02/img_0920.jpg",
+      "cover": "/media/ninhbinh-2025-02/2aOboR4NHULfhLv84EFGnn6BIGpvndAwtNDIIgoC.jpg",
       "images": [
+        "/media/ninhbinh-2025-02/2aOboR4NHULfhLv84EFGnn6BIGpvndAwtNDIIgoC.jpg",
+        "/media/ninhbinh-2025-02/2aOboR4NHYSrNI4hql3l83J6OQKc9mjb1rVRdSPg.jpg",
+        "/media/ninhbinh-2025-02/2aOboR4NHhE9gWNuj2111LZ1zeuEoSa0Dm9d0dlo.jpg",
+        "/media/ninhbinh-2025-02/2aOboR4NHjqQwopoZr58PRzHs4thxOQGpJa9O5gm.jpg",
+        "/media/ninhbinh-2025-02/2aOboR4NHrY34cuQqWsbCVqZixxWX2TNvDd3Y0X2.jpg",
+        "/media/ninhbinh-2025-02/2aOboR4NHuaBQNs9PBwbsjsLGyuUaK9hCCqU1Vg0.jpg",
+        "/media/ninhbinh-2025-02/2aOboR4NHv8rqiFGMkbU6hLTFbaVhv5MNam7e3Hc.jpg",
         "/media/ninhbinh-2025-02/img_0918.jpg",
-        "/media/ninhbinh-2025-02/img_0919.jpg",
-        "/media/ninhbinh-2025-02/img_0920.jpg",
         "/media/ninhbinh-2025-02/img_0925.jpg",
         "/media/ninhbinh-2025-02/img_0926.jpg",
-        "/media/ninhbinh-2025-02/img_0927.jpg",
-        "/media/ninhbinh-2025-02/img_7431.jpg",
-        "/media/ninhbinh-2025-02/img_7435.jpg",
-        "/media/ninhbinh-2025-02/img_7569.jpg"
+        "/media/ninhbinh-2025-02/img_0927.jpg"
       ],
       "note": "Ảnh từ chuyến đi Ninh Bình ngày 22 tháng 2 năm 2025."
     }
   ],
   "gallery": [
     {
-      "src": "/media/ninhbinh-2026/357d942b-a19a-4cad-80af-f887c22bd0b2-23327-00000cbdfdf6f862.jpg",
+      "src": "/media/memorable/357d942b-a19a-4cad-80af-f887c22bd0b2-23327-00000cbdfdf6f862.jpg",
       "alt": "Cả nhóm bên hồ và núi đá ở Ninh Bình",
       "place": "Ninh Bình",
       "date": "THÁNG 03, 2026"
     },
     {
-      "src": "/media/sapa-2025/classicu-2025-12-05-170639-584.jpg",
+      "src": "/media/memorable/classicu-2025-12-05-170639-584.jpg",
       "alt": "Cả nhóm trong sương ở Sa Pa",
       "place": "Sa Pa",
       "date": "THÁNG 12, 2025"
     },
     {
-      "src": "/media/halong-2025/img-8252.jpg",
+      "src": "/media/memorable/img-8252.jpg",
       "alt": "Cả nhóm bên vịnh Hạ Long",
       "place": "Hạ Long",
       "date": "THÁNG 05, 2025"
+    },
+    {
+      "src": "/media/memorable/2aOboR4NHYSrNI4hql3l83J6OQKc9mjb1rVRdSPg.jpg",
+      "alt": "Cả nhóm cùng tạo hình trái tim ở Ninh Bình",
+      "place": "Ninh Bình",
+      "date": "THÁNG 02, 2025"
     }
   ]
 }
