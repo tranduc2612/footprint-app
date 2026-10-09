@@ -1,0 +1,165 @@
+{
+  "stats": {
+    "places": 3,
+    "trips": 4,
+    "moments": 66
+  },
+  "heroImage": "/media/ninhbinh-2026/img-2621.jpg",
+  "places": [
+    {
+      "name": "Ninh Bình",
+      "region": "Ninh Bình",
+      "visits": 2
+    },
+    {
+      "name": "Sa Pa",
+      "region": "Lào Cai",
+      "visits": 1
+    },
+    {
+      "name": "Hạ Long",
+      "region": "Quảng Ninh",
+      "visits": 1
+    }
+  ],
+  "visits": [
+    {
+      "id": "ninhbinh-2026-03-21",
+      "place": "Ninh Bình",
+      "region": "Ninh Bình",
+      "title": "Một ngày ở Ninh Bình",
+      "date": "21 tháng 3, 2026",
+      "year": 2026,
+      "videos": 0,
+      "cover": "/media/ninhbinh-2026/357d942b-a19a-4cad-80af-f887c22bd0b2-23327-00000cbdfdf6f862.jpg",
+      "images": [
+        "/media/ninhbinh-2026/01c80178-3f5e-4b63-b5c0-7f23e234fd7e-23327-00000cbdec776d41.jpg",
+        "/media/ninhbinh-2026/1cd81e35-565b-4f6a-98d5-590a4e49cda3-23327-00000cba39b6f962.jpg",
+        "/media/ninhbinh-2026/357d942b-a19a-4cad-80af-f887c22bd0b2-23327-00000cbdfdf6f862.jpg",
+        "/media/ninhbinh-2026/4283e99f-540a-418b-9c68-849989c6b3c0-23327-00000cba213cf429.jpg",
+        "/media/ninhbinh-2026/c8e8a4fc-48c8-4138-bce9-b2492c06fed2-23327-00000cbd9ca47b8a.jpg",
+        "/media/ninhbinh-2026/def9c6fd-e78e-4eef-9732-41c367b0044a-23327-00000cbdc1fadfc9.jpg",
+        "/media/ninhbinh-2026/e2a7b348-1fe0-40f5-87a7-b47feafd0de8-23327-00000cbde00b6900.jpg",
+        "/media/ninhbinh-2026/fc849a61-546e-4f93-806f-ecee0063ff5e-23327-00000cba50ea09ee.jpg",
+        "/media/ninhbinh-2026/fxn-2026-03-21-1654254001129cc63b.jpg",
+        "/media/ninhbinh-2026/fxn-2026-03-21-165534b611236bfc7a.jpg",
+        "/media/ninhbinh-2026/fxn-2026-03-21-1658406c05eefeac67.jpg",
+        "/media/ninhbinh-2026/fxn-2026-03-21-1701302310ceb67388.jpg",
+        "/media/ninhbinh-2026/fxn-2026-03-21-17041597dcb9ea5de8.jpg",
+        "/media/ninhbinh-2026/img-2615.jpg",
+        "/media/ninhbinh-2026/img-2621.jpg",
+        "/media/ninhbinh-2026/img-2622.jpg",
+        "/media/ninhbinh-2026/img-2623.jpg",
+        "/media/ninhbinh-2026/img-7410.jpg",
+        "/media/ninhbinh-2026/img-7411.jpg",
+        "/media/ninhbinh-2026/img-7414.jpg",
+        "/media/ninhbinh-2026/img-7417.jpg",
+        "/media/ninhbinh-2026/img-7420.jpg",
+        "/media/ninhbinh-2026/img-7421.jpg",
+        "/media/ninhbinh-2026/img-7425.jpg",
+        "/media/ninhbinh-2026/img-7442.jpg"
+      ],
+      "note": "Ảnh từ chuyến đi Ninh Bình ngày 21 tháng 3 năm 2026."
+    },
+    {
+      "id": "sapa-2025-12-05",
+      "place": "Sa Pa",
+      "region": "Lào Cai",
+      "title": "Một ngày ở Sa Pa",
+      "date": "05 tháng 12, 2025",
+      "year": 2025,
+      "videos": 0,
+      "cover": "/media/sapa-2025/classicu-2025-12-05-170639-584.jpg",
+      "images": [
+        "/media/sapa-2025/9badb2f2-e819-484d-853a-01f2bcf15c47-39399-000003c5d0edfc69.jpg",
+        "/media/sapa-2025/classicu-2025-12-05-170213-919.jpg",
+        "/media/sapa-2025/classicu-2025-12-05-170450-967.jpg",
+        "/media/sapa-2025/classicu-2025-12-05-170540-074.jpg",
+        "/media/sapa-2025/classicu-2025-12-05-170639-584.jpg",
+        "/media/sapa-2025/classicu-2025-12-05-171109-634.jpg",
+        "/media/sapa-2025/classicu-2025-12-05-171700-151.jpg",
+        "/media/sapa-2025/img-0459.jpg",
+        "/media/sapa-2025/img-0498.jpg",
+        "/media/sapa-2025/img-0522.jpg",
+        "/media/sapa-2025/img-0607.jpg",
+        "/media/sapa-2025/img-0638.jpg",
+        "/media/sapa-2025/img-0681.jpg",
+        "/media/sapa-2025/img-1212.jpg",
+        "/media/sapa-2025/img-1259.jpg",
+        "/media/sapa-2025/img-2085.jpg",
+        "/media/sapa-2025/img-2086.jpg",
+        "/media/sapa-2025/img-2167.jpg"
+      ],
+      "note": "Ảnh từ chuyến đi Sa Pa ngày 5 tháng 12 năm 2025."
+    },
+    {
+      "id": "halong-2025-05-24",
+      "place": "Hạ Long",
+      "region": "Quảng Ninh",
+      "title": "Một ngày ở Hạ Long",
+      "date": "24 tháng 5, 2025",
+      "year": 2025,
+      "videos": 0,
+      "cover": "/media/halong-2025/img-8293.jpg",
+      "images": [
+        "/media/halong-2025/img-1228.jpg",
+        "/media/halong-2025/img-1231.jpg",
+        "/media/halong-2025/img-3924.jpg",
+        "/media/halong-2025/img-8245.jpg",
+        "/media/halong-2025/img-8252.jpg",
+        "/media/halong-2025/img-8277.jpg",
+        "/media/halong-2025/img-8284.jpg",
+        "/media/halong-2025/img-8293.jpg",
+        "/media/halong-2025/img-8306.jpg",
+        "/media/halong-2025/img-8319.jpg",
+        "/media/halong-2025/img-8324.jpg",
+        "/media/halong-2025/img-8417.jpg",
+        "/media/halong-2025/img-8485.jpg",
+        "/media/halong-2025/img-8502.jpg"
+      ],
+      "note": "Ảnh từ chuyến đi Hạ Long ngày 24 tháng 5 năm 2025."
+    },
+    {
+      "id": "ninhbinh-2025-02-22",
+      "place": "Ninh Bình",
+      "region": "Ninh Bình",
+      "title": "Một ngày ở Ninh Bình",
+      "date": "22 tháng 2, 2025",
+      "year": 2025,
+      "videos": 0,
+      "cover": "/media/ninhbinh-2025-02/img_0920.jpg",
+      "images": [
+        "/media/ninhbinh-2025-02/img_0918.jpg",
+        "/media/ninhbinh-2025-02/img_0919.jpg",
+        "/media/ninhbinh-2025-02/img_0920.jpg",
+        "/media/ninhbinh-2025-02/img_0925.jpg",
+        "/media/ninhbinh-2025-02/img_0926.jpg",
+        "/media/ninhbinh-2025-02/img_0927.jpg",
+        "/media/ninhbinh-2025-02/img_7431.jpg",
+        "/media/ninhbinh-2025-02/img_7435.jpg",
+        "/media/ninhbinh-2025-02/img_7569.jpg"
+      ],
+      "note": "Ảnh từ chuyến đi Ninh Bình ngày 22 tháng 2 năm 2025."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "/media/ninhbinh-2026/357d942b-a19a-4cad-80af-f887c22bd0b2-23327-00000cbdfdf6f862.jpg",
+      "alt": "Cả nhóm bên hồ và núi đá ở Ninh Bình",
+      "place": "Ninh Bình",
+      "date": "THÁNG 03, 2026"
+    },
+    {
+      "src": "/media/sapa-2025/classicu-2025-12-05-170639-584.jpg",
+      "alt": "Cả nhóm trong sương ở Sa Pa",
+      "place": "Sa Pa",
+      "date": "THÁNG 12, 2025"
+    },
+    {
+      "src": "/media/halong-2025/img-8252.jpg",
+      "alt": "Cả nhóm bên vịnh Hạ Long",
+      "place": "Hạ Long",
+      "date": "THÁNG 05, 2025"
+    }
+  ]
+}

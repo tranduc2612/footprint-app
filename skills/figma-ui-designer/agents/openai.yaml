@@ -1,0 +1,4 @@
+interface:
+  display_name: "Figma UI Designer"
+  short_description: "Design organized, polished UI directly in Figma"
+  default_prompt: "Use $figma-ui-designer to design this interface in Figma."

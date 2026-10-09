@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend UI Builder"
+  short_description: "Build polished, responsive frontend interfaces"
+  default_prompt: "Use $frontend-ui-builder to implement this interface in the existing project."
