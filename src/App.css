@@ -125,44 +125,21 @@ h2 { max-width: 760px; margin: 0; font-size: clamp(48px, 6vw, 80px); letter-spac
 .place-arrow { color: var(--dock); font-size: 17px; text-align: right; }
 
 .places-map { grid-area: map; min-width: 0; margin: 0; }
-.places-map-canvas { position: relative; isolation: isolate; min-height: 430px; overflow: hidden; border: 1px solid #d1d8d8; border-radius: 25px; background: #e8ece8; box-shadow: 0 16px 40px rgb(42 54 65 / 7%); }
-.places-map-canvas::before { position: absolute; z-index: -1; inset: 0; background-image: linear-gradient(rgb(79 99 107 / 7%) 1px, transparent 1px), linear-gradient(90deg, rgb(79 99 107 / 7%) 1px, transparent 1px); background-size: 12.5% 14.285%; content: ''; }
-.map-artwork { position: absolute; inset: 0; width: 100%; height: 100%; }
-.map-land { fill: #e9ede7; }
-.map-water { fill: #d4e1e1; }
-.map-coast { fill: none; stroke: #a9c0c0; stroke-width: 2; vector-effect: non-scaling-stroke; }
-.map-contours { stroke: #c3cdc2; stroke-width: 1.1; opacity: .7; vector-effect: non-scaling-stroke; }
-.map-roads { stroke: #f9faf5; stroke-width: 2.5; opacity: .96; vector-effect: non-scaling-stroke; }
-.map-rivers { stroke: #b4cbca; stroke-width: 2; opacity: .9; vector-effect: non-scaling-stroke; }
-.map-islands { fill: #c0d1ce; opacity: .9; }
-.map-place-label, .map-region-label { position: absolute; z-index: 1; color: #7c8987; font-size: 9px; font-weight: 700; letter-spacing: .16em; pointer-events: none; }
-.map-place-label-hanoi { top: 47%; left: 52%; color: #64727a; }
-.map-place-label-bay { top: 34%; right: 4%; color: #7d999a; font-size: 8px; letter-spacing: .18em; }
-.map-region-label-northwest { top: 35%; left: 4%; }
-.map-region-label-southeast { right: 5%; bottom: 9%; font-size: 8px; }
-.map-compass { position: absolute; top: 23px; right: 25px; z-index: 2; display: grid; justify-items: center; gap: 4px; color: #68747d; font-size: 9px; font-weight: 750; letter-spacing: .1em; }
-.map-compass i { display: block; width: 1px; height: 27px; background: #68747d; }
-.map-compass i::before { display: block; width: 7px; height: 7px; margin: -1px 0 0 -3px; border-top: 1px solid #68747d; border-left: 1px solid #68747d; content: ''; transform: rotate(45deg); }
+.places-map-canvas { position: relative; height: 430px; min-height: 0; overflow: hidden; border: 1px solid #d1d8d8; border-radius: 25px; background: #e8ece8; box-shadow: 0 16px 40px rgb(42 54 65 / 7%); }
+.places-leaflet-map { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; background: #e8ece8; font-family: 'Be Vietnam Pro', 'Helvetica Neue', Arial, sans-serif; }
+.places-leaflet-map .leaflet-top.leaflet-right { top: 65px; right: 15px; }
+.places-leaflet-map .leaflet-control-zoom a { color: #354155; }
+.places-leaflet-map .leaflet-control-attribution { max-width: calc(100% - 12px); padding: 2px 5px; border-radius: 4px 0 0; background: rgb(248 249 246 / 84%); font-size: 9px; }
+.places-map-marker-shell { border: 0; background: transparent; }
+.places-map-marker { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid rgb(62 76 91 / 14%); border-radius: 50%; background: rgb(248 249 246 / 96%); box-shadow: 0 4px 13px rgb(35 46 63 / 20%); color: #354155; font-size: 10px; font-weight: 750; transition: background .2s, color .2s, transform .2s, box-shadow .2s; }
+.places-map-marker::before { position: absolute; width: 26px; height: 26px; border: 1px solid #8b9bab; border-radius: 50%; content: ''; }
+.places-map-marker.is-selected, .leaflet-marker-icon:hover .places-map-marker { background: var(--dock); box-shadow: 0 0 0 6px rgb(53 65 85 / 12%), 0 8px 18px rgb(35 46 63 / 24%); color: #fff; transform: scale(1.08); }
+.places-map-tooltip.leaflet-tooltip { display: grid; gap: 2px; padding: 7px 9px; border: 1px solid rgb(53 65 85 / 12%); border-radius: 9px; background: rgb(248 249 246 / 96%); box-shadow: 0 5px 15px rgb(35 46 63 / 10%); color: var(--ink); font-family: 'Be Vietnam Pro', 'Helvetica Neue', Arial, sans-serif; }
+.places-map-tooltip strong { font-size: 11px; font-weight: 750; }
+.places-map-tooltip span { color: #6d7782; font-size: 9px; }
 .places-map-heading { position: absolute; top: 20px; left: 22px; z-index: 2; display: grid; gap: 4px; color: #586273; }
 .places-map-heading span { font-size: 8px; font-weight: 750; letter-spacing: .16em; }
 .places-map-heading strong { color: #29313a; font-family: var(--display); font-size: 17px; font-weight: 700; letter-spacing: -.02em; }
-.places-map-coordinate { position: absolute; right: 20px; bottom: 17px; z-index: 2; color: #74817f; font-size: 8px; font-weight: 650; letter-spacing: .08em; }
-.map-marker { position: absolute; z-index: 3; display: flex; align-items: center; padding: 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; transform: translate(-50%, -50%); }
-.map-marker-point { position: relative; display: grid; width: 38px; height: 38px; flex: 0 0 38px; place-items: center; border: 1px solid rgb(62 76 91 / 14%); border-radius: 50%; background: rgb(248 249 246 / 95%); box-shadow: 0 4px 13px rgb(35 46 63 / 17%); transition: background .2s, color .2s, transform .2s, box-shadow .2s; }
-.map-marker-point::before { position: absolute; inset: 5px; border: 1px solid #8b9bab; border-radius: 50%; content: ''; }
-.map-marker-point > span { position: relative; z-index: 1; color: #354155; font-size: 9px; font-weight: 750; letter-spacing: .02em; }
-.map-marker-label { position: absolute; display: grid; gap: 3px; min-width: max-content; padding: 8px 10px; border: 1px solid rgb(53 65 85 / 12%); border-radius: 10px; background: rgb(248 249 246 / 94%); box-shadow: 0 5px 15px rgb(35 46 63 / 8%); transition: border-color .2s, color .2s, transform .2s; }
-.map-marker-label strong { font-family: var(--display); font-size: 14px; font-weight: 750; line-height: 1; }
-.map-marker-label small { color: #6d7782; font-size: 9px; font-weight: 550; }
-.map-marker-east .map-marker-label { top: 50%; left: 29px; transform: translateY(-50%); }
-.map-marker-west .map-marker-label { top: 50%; right: 29px; text-align: right; transform: translateY(-50%); }
-.map-marker-north .map-marker-label { right: 3px; bottom: 48px; text-align: right; }
-.map-marker:hover .map-marker-point, .map-marker:focus-visible .map-marker-point, .map-marker.is-selected .map-marker-point { background: var(--dock); box-shadow: 0 0 0 6px rgb(53 65 85 / 11%), 0 8px 18px rgb(35 46 63 / 20%); transform: scale(1.08); }
-.map-marker:hover .map-marker-point > span, .map-marker:focus-visible .map-marker-point > span, .map-marker.is-selected .map-marker-point > span { color: #fff; }
-.map-marker:hover .map-marker-point::before, .map-marker:focus-visible .map-marker-point::before, .map-marker.is-selected .map-marker-point::before { border-color: rgb(255 255 255 / 58%); }
-.map-marker:hover .map-marker-label, .map-marker:focus-visible .map-marker-label, .map-marker.is-selected .map-marker-label { border-color: rgb(53 65 85 / 32%); }
-.map-marker:focus-visible { outline: none; }
-.map-marker:focus-visible .map-marker-point { outline: 2px solid var(--ink); outline-offset: 3px; }
 .places-map-caption { display: flex; justify-content: space-between; gap: 12px; padding: 13px 2px 0; color: #68717d; font-size: 11px; }
 .places-map-caption > span:first-child { display: inline-flex; align-items: center; gap: 8px; color: #3b4553; font-weight: 650; }
 .places-map-caption i { width: 7px; height: 7px; border-radius: 50%; background: var(--dock); }
@@ -347,14 +324,7 @@ h2 { max-width: 760px; margin: 0; font-size: clamp(48px, 6vw, 80px); letter-spac
   .places-map-heading { top: 16px; left: 15px; }
   .places-map-heading span { font-size: 7px; }
   .places-map-heading strong { font-size: 15px; }
-  .map-compass { top: 18px; right: 17px; }
-  .map-region-label-southeast { right: 4%; bottom: 7%; }
-  .map-marker-point { width: 34px; height: 34px; flex-basis: 34px; }
-  .map-marker-east .map-marker-label { left: 25px; }
-  .map-marker-west .map-marker-label { right: 25px; }
-  .map-marker-west .map-marker-label { top: auto; right: 0; bottom: 34px; text-align: left; transform: none; }
-  .map-marker-label { padding: 7px 8px; }
-  .map-marker-label strong { font-size: 12px; }
+  .places-leaflet-map .leaflet-top.leaflet-right { top: 58px; right: 9px; }
   .places-map-caption { align-items: baseline; font-size: 10px; }
   .place-row { grid-template-columns: 30px 1fr auto 18px; gap: 9px; padding: 17px 2px; }
   .place-name { font-size: 21px; }
